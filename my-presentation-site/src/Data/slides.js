@@ -87,7 +87,149 @@ export const slides = [
     backgroundColor: "#9f7aea",
     textColor: "white",
     visualHint: "img5"
-  }
+  },
+  // Slide 6: Виртуал Санах Ой
+  {
+    id: 6,
+    title: "Виртуал Санах Ой",
+    subtitle: "Virtual Memory & Paging",
+    layout: 'dual',
+    content:
+      "Орчин үеийн системүүд програм бүрт тусдаа санах ойн орон зай өгдөг.\n\n" +
+      "Давуу тал:\n" +
+      "- Програмууд хоорондоо нөлөөлөхгүй\n" +
+      "- Алдаа гарсан ч бусад програмд нөлөөлөхгүй\n" +
+      "- RAM хүрэлцэхгүй ч програм ажиллах боломжтой\n" +
+      "- Олон програм зэрэг ажиллах боломжтой",
+    backgroundColor: "#1f2937",
+    textColor: "white",
+    visualHint: "img6"
+  },
+
+  // Slide 7: Paging
+  {
+    id: 7,
+    title: "Paging (Хуудаслалт)",
+    subtitle: "Virtual Memory Management",
+    layout: 'dual',
+    content:
+      "Програмын санах ойг жижиг блок (pages) болгон хувааж, RAM дахь frames-тэй холбодог.\n\n" +
+      "Давуу тал:\n" +
+      "- RAM тасралтгүй байх шаардлагагүй\n" +
+      "- Fragmentation багасна\n" +
+      "- Том програм RAM-д багтаж ажиллах боломжтой",
+    backgroundColor: "#4c51bf",
+    textColor: "white",
+    visualHint: "img7"
+  },
+
+  // Slide 8: Virtual vs Physical Address
+  {
+    id: 8,
+    title: "Virtual vs Physical Address",
+    subtitle: "Хийсвэр хаяг ба Физик хаяг",
+    layout: 'table',
+    content: "Virtual vs Physical addresses-ийн ялгаа",
+    tableData: {
+      headers: ['Төрөл', 'Тайлбар'],
+      rows: [
+        ['Virtual Address', 'Програм ашигладаг хийсвэр хаяг, RAM-ын байршлыг мэддэггүй.'],
+        ['Physical Address', 'RAM дахь жинхэнэ хаяг, зөвхөн OS болон hardware мэднэ.']
+      ]
+    },
+    backgroundColor: "#319795",
+    textColor: "white",
+    visualHint: null
+  },
+
+  // Slide 9: MMU
+  {
+    id: 9,
+    title: "MMU (Memory Management Unit)",
+    subtitle: "Виртуал хаягийг физик хаягт хөрвүүлэх",
+    layout: 'dual',
+    content:
+      "CPU-д байрлах тусгай hardware.\n\n" +
+      "Үүрэг:\n" +
+      "1. Virtual → Physical address хөрвүүлэх\n" +
+      "2. Page fault илрүүлэх\n" +
+      "3. Санах ойн хамгаалалт хангах\n" +
+      "4. TLB ашиглан хурдыг нэмэгдүүлэх",
+    backgroundColor: "#f6ad55",
+    textColor: "#333",
+    visualHint: "img8"
+  },
+
+  // Slide 10: Page Table & PTE
+  {
+    id: 10,
+    title: "Page Table & PTE",
+    subtitle: "Paging-д мэдээллийн бүтэц",
+    layout: 'dual',
+    content:
+      "Page Table нь виртуал хаягийг физик хаягт хөрвүүлэх хүснэгт юм.\n\n" +
+      "PTE-д юу хадгалагддаг:\n" +
+      "- Frame number (RAM-д хаана байгааг)\n" +
+      "- Valid / Invalid бит\n" +
+      "- Read / Write / Execute эрхүүд\n" +
+      "- Reference ба Dirty бит",
+    backgroundColor: "#9f7aea",
+    textColor: "white",
+    visualHint: "img9"
+  },
+
+  // Slide 11: Paging-г хурдлуулах техникүүд
+{
+  id: 11,
+  title: "Paging-г хурдлуулах техникүүд",
+  subtitle: "TLB болон Page Replacement Алгоритм",
+  layout: 'comparison',
+  content:
+    "Page Replacement Алгоритмууд\n" +
+    "Өгөгдсөн page sequence: 7,0,1,2,0,3,0,4,2,3,0,3,0,3,2,1,2,0,1,7,0,1\n" +
+    "Фрэйм: 3\n\n" ,
+  comparisonData: {
+    left: {
+      title: "LRU (Least Recently Used)",
+      visualHint: "img11_2",
+      description: "Хамгийн сүүлд хэрэглэгдээгүй page солигдоно"
+    },
+    right: {
+      title: "FIFO (First-In-First-Out)",
+      visualHint: "img11",
+      description: "Эхэнд ирсэн page-ийг эхэнд солих"
+    }
+  },
+  backgroundColor: "#e53e3e",
+  textColor: "white",
+  visualHint: "img10"
+},
+{
+  id: 12,
+ title: "Paging-г хурдлуулах техникүүд",
+  subtitle: "TLB болон Page Replacement Алгоритм",
+  layout: 'comparison',
+  content:
+    "Page Replacement Алгоритмууд\n" +
+    "Өгөгдсөн page sequence: 7,0,1,2,0,3,0,4,2,3,0,3,0,3,2,1,2,0,1,7,0,1\n" +
+    "Фрэйм: 3\n\n" ,
+  comparisonData: {
+    left: {
+      title: "Optimal",
+      visualHint: "img11_1",
+      description: "Ирээдүйд хамгийн удаан хэрэглэхгүй page-ийг солих (минимум шилжилт = 9)"
+    },
+    right: {
+      title: "Clock (Цаган) алгоритм",
+      visualHint: "img10",
+      description: "Page-ийн R битийг шалгаж солих, TLB miss rate бууруулах"
+    }
+  },
+  backgroundColor: "#e53e3e",
+  textColor: "white"
+}
+
+
 ];
 
 

@@ -7,9 +7,11 @@ import About from './pages/About'
 function App() {
   return (
     <Router>
-          <Routes>
-            <Route path="/presentation" element={<Presentation />} />
-          </Routes>
+        <Routes>
+  <Route path="/" element={<Presentation />} /> 
+  <Route path="/presentation" element={<Presentation />} />
+</Routes>
+
     </Router>
   )
 }
