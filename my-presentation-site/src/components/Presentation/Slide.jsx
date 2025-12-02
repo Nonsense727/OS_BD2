@@ -105,28 +105,34 @@ const Slide = ({ slide, isActive, direction }) => {
               {renderContent(slide.content)}
             </motion.div>
 
-            {/* Right Column: Visual Hint/Image Rendering - АЛДААГ ЗАСВАРЛАВ */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.8, type: "spring", stiffness: 150 }}
-              style={styles.visualHintBox}
-            >
-              {/* Зураг байвал <IMG> таг ашиглана */}
-              {isImageUrl ? (
-                <img
-                  src={slide.visualHint}
-                  alt={slide.title + " diagram"}
-                  style={styles.actualImage}
-                />
-              ) : (
-                // Зураг байхгүй бол placeholder текст харуулна
-                <>
-                  <p style={styles.visualHintText}>ВИЗУАЛ ЭЛЕМЕНТ (ЗУРАГ) ОРУУЛАХ ХЭСЭГ</p>
-                  <code style={styles.visualHintCode}>{slide.visualHint}</code>
-                </>
-              )}
-            </motion.div>
+         <motion.div
+  initial={{ opacity: 0, scale: 0.8 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ delay: 0.8, type: "spring", stiffness: 150 }}
+  style={styles.visualHintBox}
+>
+  {Array.isArray(slide.visualHints) ? (
+    slide.visualHints.map((img, i) => (
+      <img
+        key={i}
+        src={img}
+        alt={`${slide.title} diagram ${i + 1}`}
+        style={styles.actualImage}
+      />
+    ))
+  ) : slide.visualHint ? (
+    <img
+      src={slide.visualHint}
+      alt={slide.title + " diagram"}
+      style={styles.actualImage}
+    />
+  ) : (
+    <>
+      <p style={styles.visualHintText}>ВИЗУАЛ ЭЛЕМЕНТ (ЗУРАГ) ОРУУЛАХ ХЭСЭГ</p>
+      <code style={styles.visualHintCode}>{slide.visualHint}</code>
+    </>
+  )}
+</motion.div>
           </div>
         
           {/* Slide Number (omitted for brevity) */}
