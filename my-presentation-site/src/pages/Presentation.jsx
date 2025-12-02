@@ -4,23 +4,23 @@ import Slide from '../components/Presentation/Slide'
 import Controls from '../components/Presentation/Controls'
 import { slides } from '../Data/slides'
 
-import img1 from '../images/img1.jpg'; 
-import img2 from '../images/img2.png'; 
-import img3 from '../images/img3.jpg'; 
-import img4 from '../images/img4.png'; 
-import img5 from '../images/img5.png'; 
-import img6 from '../images/img6.png'; 
-import img7 from '../images/img7.webp'; 
-import img9 from '../images/img9.png'; 
-import img10 from '../images/img10.png'; 
-import img11 from '../images/img11.png'; 
-import img11_1 from '../images/img11_1.png'; 
-import img11_2 from '../images/img11_2.png'; 
+import img1 from '../images/img1.jpg';
+import img2 from '../images/img2.png';
+import img3 from '../images/img3.jpg';
+import img4 from '../images/img4.png';
+import img5 from '../images/img5.png';
+import img6 from '../images/img6.png';
+import img7 from '../images/img7.webp';
+import img9 from '../images/img9.png';
+import img10 from '../images/img10.png';
+import img11 from '../images/img11.png';
+import img11_1 from '../images/img11_1.png';
+import img11_2 from '../images/img11_2.png';
 
 
 
 const imageMap = {
-  'img1': img1, 
+  'img1': img1,
   'img2': img2,
   'img3': img3,
   'img4': img4,
@@ -36,17 +36,17 @@ const imageMap = {
 
 const slidesWithImages = slides.map(slide => {
   let updatedSlide = { ...slide };
-  
+
   if (slide.layout === 'dual' && imageMap[slide.visualHint]) {
     updatedSlide.visualHint = imageMap[slide.visualHint];
   }
 
   if (slide.layout === 'comparison' && slide.comparisonData) {
     if (imageMap[slide.comparisonData.left.visualHint]) {
-        updatedSlide.comparisonData.left.visualHint = imageMap[slide.comparisonData.left.visualHint];
+      updatedSlide.comparisonData.left.visualHint = imageMap[slide.comparisonData.left.visualHint];
     }
     if (imageMap[slide.comparisonData.right.visualHint]) {
-        updatedSlide.comparisonData.right.visualHint = imageMap[slide.comparisonData.right.visualHint];
+      updatedSlide.comparisonData.right.visualHint = imageMap[slide.comparisonData.right.visualHint];
     }
   }
 
@@ -60,7 +60,7 @@ const Presentation = () => {
 
   useEffect(() => {
     const handleKeyDown = (e) => {
-      switch(e.key) {
+      switch (e.key) {
         case 'ArrowRight':
         case ' ':
           e.preventDefault()
@@ -101,9 +101,9 @@ const Presentation = () => {
     setDirection(-1)
     setCurrentSlide(1)
   }
-  
+
   const currentSlideData = slidesWithImages.find(slide => slide.id === currentSlide)
-  
+
 
   return (
     <motion.div
@@ -112,11 +112,11 @@ const Presentation = () => {
       exit={{ opacity: 0 }}
       style={styles.container} // Шинэ container style-ийг ашиглана
     >
-      
+
       <div style={styles.presentationContainer}>
         <AnimatePresence custom={direction} mode='wait'>
           {currentSlideData && (
-            <Slide 
+            <Slide
               key={currentSlideData.id}
               slide={currentSlideData}
               isActive={true}
@@ -140,7 +140,7 @@ const Presentation = () => {
 const styles = {
   container: {
     width: '100vw',
-    height: '100vh', 
+    height: '100vh',
     margin: 0,
     padding: 0,
     overflow: 'hidden', // Scrollbar-ийг устгах
@@ -149,16 +149,16 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
   },
-  
+
   presentationContainer: {
     position: 'relative',
-    width: '100vw', 
-    height: '100vh', 
-    marginBottom: 0, 
+    width: '100vw',
+    height: '100vh',
+    marginBottom: 0,
   },
-  
+
   keyboardHint: {
-    position: 'fixed', 
+    position: 'fixed',
     bottom: '10px',
     textAlign: 'center',
     color: 'rgba(255, 255, 255, 0.7)',
