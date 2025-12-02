@@ -1,40 +1,73 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import Slide from '../components/presentation/Slide'
-import Controls from '../components/presentation/Controls'
-import { slides } from '../Data/Slides'
+import Slide from '../components/Presentation/Slide'
+import Controls from '../components/Presentation/Controls'
+import { slides } from '../Data/slides'
+
+// 1. Бүх зургийг импортлох. Таны зургийн файлууд '../images/' фолдерт байгаа гэж үзнэ.
+// Ирээдүйд зураг нэмэх үед зөвхөн энэ хэсэгт нэмэхэд хангалттай.
+import img1 from '../images/img1.jpg'; 
+import img2 from '../images/img2.png'; 
+import img3 from '../images/img3.jpg'; 
+import img4 from '../images/img4.png'; 
+import img5 from '../images/img5.png'; 
+
+// 2. Импортолсон зургуудыг key-value хослолоор хадгалах объект
+const imageMap = {
+  // slides.js доторх visualHint талбар дахь нэртэй тааруулна
+  'img1': img1, 
+  'img2': img2,
+  'img3': img3,
+  'img4': img4,
+  'img5': img5,
+};
+
+// 3. Slides data-г зургийн URL-аар баяжуулах функц
+const slidesWithImages = slides.map(slide => {
+  const imageKey = slide.visualHint;
+  
+  // Хэрэв visualHint нь 'img1', 'img2' гэх мэт imageMap дотор байгаа нэр байвал
+  if (imageMap[imageKey]) {
+    // visualHint талбарын утгыг импортлогдсон зургийн URL-аар орлуулна.
+    return { ...slide, visualHint: imageMap[imageKey] };
+  }
+  
+  // Хэрэв зураггүй эсвэл буруу нэр өгсөн бол өмнөх утгаар нь үлдээнэ.
+  return slide; 
+});
+
 
 const Presentation = () => {
   const [currentSlide, setCurrentSlide] = useState(1)
   const [direction, setDirection] = useState(0)
 
   useEffect(() => {
-  const handleKeyDown = (e) => {
-    switch(e.key) {
-      case 'ArrowRight':
-      case ' ':
-        e.preventDefault()
-        handleNext()
-        break
-      case 'ArrowLeft':
-        e.preventDefault()
-        handlePrev()
-        break
-      case 'Escape':
-        e.preventDefault()
-        handleRestart()
-        break
-      default:
-        break
+    const handleKeyDown = (e) => {
+      switch(e.key) {
+        case 'ArrowRight':
+        case ' ':
+          e.preventDefault()
+          handleNext()
+          break
+        case 'ArrowLeft':
+          e.preventDefault()
+          handlePrev()
+          break
+        case 'Escape':
+          e.preventDefault()
+          handleRestart()
+          break
+        default:
+          break
+      }
     }
-  }
 
-  window.addEventListener('keydown', handleKeyDown)
-  return () => window.removeEventListener('keydown', handleKeyDown)
-}, [currentSlide])
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [currentSlide])
 
   const handleNext = () => {
-    if (currentSlide < slides.length) {
+    if (currentSlide < slidesWithImages.length) { // slidesWithImages-ийг ашиглана
       setDirection(1)
       setCurrentSlide(prev => prev + 1)
     }
@@ -51,8 +84,9 @@ const Presentation = () => {
     setDirection(-1)
     setCurrentSlide(1)
   }
-
-  const currentSlideData = slides.find(slide => slide.id === currentSlide)
+  
+  // SlidesWithImages-аас одоогийн слайдны датаг хайна
+  const currentSlideData = slidesWithImages.find(slide => slide.id === currentSlide)
 
   return (
     <motion.div
@@ -78,7 +112,7 @@ const Presentation = () => {
 
       <Controls
         currentSlide={currentSlide}
-        totalSlides={slides.length}
+        totalSlides={slidesWithImages.length} // slidesWithImages-ийг ашиглана
         onNext={handleNext}
         onPrev={handlePrev}
         onRestart={handleRestart}
@@ -106,7 +140,8 @@ const styles = {
   },
   presentationContainer: {
     position: 'relative',
-    height: '600px',
+    // 💡 Слайдны өндөр 700px байсан тул controls-ийг ил гаргахын тулд нэмэгдүүлэв
+    height: '750px', 
     marginBottom: '2rem',
   },
   keyboardHint: {

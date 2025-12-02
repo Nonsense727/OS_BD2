@@ -1,42 +1,64 @@
 export const slides = [
   {
     id: 1,
-    title: "Welcome to Our Presentation",
-    content: "This is the beginning of our interactive React presentation.",
-    subtitle: "Introduction",
-    backgroundColor: "#667eea",
-    textColor: "white"
+    title: "Виртуал Хаягийн Орон Зай",
+    content: 
+      "Хийсвэрлэлгүй үе: Програм физик хаягт шууд ханддаг байсан нь системийн аюулгүй байдлыг алдагдуулдаг.\n" +
+      "Address Space: Процесс бүрт зориулсан хийсвэр санах ойн хаягийн багц.\n" +
+      "Хамгаалалт: Base & Limit регистр ашиглан нэг процессыг нөгөөгөөс нь тусгаарлана.\n" +
+      "Физик Хаяг = Логик Хаяг + Base",
+    subtitle: "Санах Ойн Хийсвэрлэл ба Техник Хангамжийн Хамгаалалт",
+    backgroundColor: "#1f2937", // Dark Slate
+    textColor: "white",
+    visualHint: "img1"
   },
   {
     id: 2,
-    title: "About Our Project",
-    content: "We're building a PowerPoint-like website using React and Vite.",
-    subtitle: "Project Overview",
-    backgroundColor: "#764ba2",
-    textColor: "white"
+    title: "Multiprogramming & Хуваагдал",
+    content: 
+      "Fixed Partitions (Тогтмол хуваалт): Санах ойг урьдчилан тодорхойлсон хэсгүүдэд хуваах.\n" +
+      "Дотоод хуваагдал (Internal Fragmentation): Хуваалт доторх ашиглагдаагүй үлдэгдэл зай (процесс < хуваалт).\n" +
+      "Гадаад хуваагдал (External Fragmentation): Олон жижиг, тасархай сул зайнууд үүсэх. Энэ нь санах ойг бүхлээр нь ашиглах боломжгүй болгодог.",
+    subtitle: "Олон Процессын Асуудлууд",
+    backgroundColor: "#4c51bf", // Indigo
+    textColor: "white",
+    visualHint: "img2"
   },
   {
     id: 3,
-    title: "Features",
-    content: "• Interactive slides\n• Smooth animations\n• Responsive design\n• Easy navigation",
-    subtitle: "Key Features",
-    backgroundColor: "#f093fb",
-    textColor: "#333"
+    title: "Swapping: Зөөх & Нягтруулах",
+    content: 
+      "Swapping: RAM-д зай хүрэхгүй үед идэвхгүй процессыг **бүхлээр нь** Диск (Backing Store) руу хуулах.\n" +
+      "Ялгаа: Swapping нь бүхэл процессыг зөөдөг. Virtual Memory (Paging) нь зөвхөн хэсгийг зөөдөг.\n" +
+      "Memory Compaction: Гадаад хуваагдлыг арилгахын тулд бүх процессыг шахаж, сул зайг нэгтгэх. CPU-д их ачаалал өгдөг.",
+    subtitle: "RAM-ийн Хязгаарлалтыг Давах Техник",
+    backgroundColor: "#319795", // Teal
+    textColor: "white",
+    visualHint: "img3"
   },
   {
     id: 4,
-    title: "Technology Stack",
-    content: "React + Vite + React Router + Framer Motion",
-    subtitle: "Tech Stack",
-    backgroundColor: "#4facfe",
-    textColor: "white"
+    title: "Сул Зайг Хянах Бүтэц",
+    content: 
+      "1. Bitmaps (Бит Зураглал): Блок бүрийг 0/1-ээр тэмдэглэнэ. Том сул зай олох нь удаан.\n" +
+      "2. Linked Lists (Холбоост Жагсаалт): Эзлэгдсэн (P) болон Сул (H) сегментүүдийг дараалсан жагсаалтаар хадгална.\n" +
+      "Давуу тал: Сул зайнуудыг нэгтгэх (Coalescing) нь хялбар бөгөөд хурдан.",
+    subtitle: "Ашиглагдаагүй Санах Ойг Бүртгэх Арга",
+    backgroundColor: "#f6ad55", // Light Orange
+    textColor: "#333",
+    visualHint: "img4"
   },
   {
     id: 5,
-    title: "Thank You",
-    content: "Questions? Let's discuss!",
-    subtitle: "Conclusion",
-    backgroundColor: "#00cdac",
-    textColor: "white"
+    title: "Хуваарилалтын Алгоритмууд",
+    content: 
+      "First Fit: Жагсаалтын эхнээс таарсан **хамгийн эхний** зайг сонгоно. (Хамгийн хурдан, үр ашигтай).\n" +
+      "Best Fit: Хамгийн бага илүүдэл үлдээх зайг сонгоно. (Жижиг цоорхой үүсэх эрсдэлтэй).\n" +
+      "Worst Fit: Хамгийн **том** сул зайг сонгоно. (Үлдсэн зай нь ашиглагдах боломжтой).\n" +
+      "Эдгээр нь Linked List-д суурилсан хуваарилалтын стратегиуд юм.",
+    subtitle: "Сул Зай Сонгох Стратегиуд",
+    backgroundColor: "#9f7aea", // Light Purple
+    textColor: "white",
+    visualHint: "img5"
   }
-]
+];

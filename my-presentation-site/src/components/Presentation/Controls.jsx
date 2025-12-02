@@ -62,12 +62,14 @@ const styles = {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: '2rem',
+    marginTop: '3rem',
     padding: '1rem',
     background: 'rgba(255, 255, 255, 0.1)',
     backdropFilter: 'blur(10px)',
     borderRadius: '15px',
     border: '1px solid rgba(255, 255, 255, 0.2)',
+    zIndex: 10, 
+    position: 'relative',
   },
   button: {
     background: 'linear-gradient(45deg, #667eea, #764ba2)',
@@ -116,7 +118,19 @@ const styles = {
   rightButtons: {
     display: 'flex',
     alignItems: 'center',
-  }
+  },
+  container: {
+    minHeight: 'calc(100vh - 100px)',
+    padding: '2rem',
+    maxWidth: '1200px',
+    margin: '0 auto',
+    height: '200px'
+  },
+  presentationContainer: {
+    position: 'relative',
+    height: '750px', 
+    marginBottom: '2rem', 
+  },
 }
 
 export default Controls
