@@ -1,4 +1,3 @@
-
 export const slides = [
   {
     id: 1,
@@ -34,7 +33,7 @@ export const slides = [
     },
     backgroundColor: "#4c51bf", // Indigo
     textColor: "white",
-    visualHint: null // Table-д зураг шаардлагагүй
+    visualHint: null
   },
 
   // --- ШИНЭ ТӨРӨЛ: ЗУРАГ ХАРЬЦУУЛАЛТ (COMPARISON) ---
@@ -55,7 +54,7 @@ export const slides = [
         description: "Олон жижиг тасархай сул зайнууд (External Fragmentation) үүсч байна.",
       }
     },
-    backgroundColor: "#319795", // Teal
+    backgroundColor: "#319795", 
     textColor: "white",
     visualHint: null
   },
@@ -68,6 +67,8 @@ export const slides = [
     layout: 'dual',
     content:
       "Swapping: RAM-д зай хүрэхгүй үед идэвхгүй процессыг **бүхлээр нь** Диск (Backing Store) руу хуулах.\n" +
+    content: 
+      "Swapping: RAM-д зай хүрэхгүй үед идэвхгүй процессыг бүхлээр нь Диск (Backing Store) руу хуулах.\n" +
       "Ялгаа: Swapping нь бүхэл процессыг зөөдөг. Virtual Memory (Paging) нь зөвхөн хэсгийг зөөдөг.\n" +
       "Memory Compaction: Гадаад хуваагдлыг арилгахын тулд бүх процессыг шахаж, сул зайг нэгтгэх. CPU-д их ачаалал өгдөг.",
     backgroundColor: "#f6ad55",
@@ -81,8 +82,10 @@ export const slides = [
     layout: 'dual',
     content:
       "First Fit: Жагсаалтын эхнээс таарсан **хамгийн эхний** зайг сонгоно. (Хамгийн хурдан, үр ашигтай).\n" +
+    content: 
+      "First Fit: Жагсаалтын эхнээс таарсан хамгийн эхний зайг сонгоно. (Хамгийн хурдан, үр ашигтай).\n" +
       "Best Fit: Хамгийн бага илүүдэл үлдээх зайг сонгоно. (Жижиг цоорхой үүсэх эрсдэлтэй).\n" +
-      "Worst Fit: Хамгийн **том** сул зайг сонгоно. (Үлдсэн зай нь ашиглагдах боломжтой).\n" +
+      "Worst Fit: Хамгийн том сул зайг сонгоно. (Үлдсэн зай нь ашиглагдах боломжтой).\n" +
       "Эдгээр нь Linked List-д суурилсан хуваарилалтын стратегиуд юм.",
     backgroundColor: "#9f7aea",
     textColor: "white",

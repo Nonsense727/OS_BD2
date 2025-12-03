@@ -231,7 +231,6 @@ const Slide = ({ slide, isActive, direction }) => {
 }
 
 const styles = {
-  // 🚀 Слайдны хэмжээг цонхоор БҮРЭН ДҮҮРГЭХ STYLE 🚀
   slide: {
     width: '100vw', 
     height: '100vh', 
