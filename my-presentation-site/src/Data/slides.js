@@ -95,10 +95,10 @@ export const slides = [
     content:
       "Орчин үеийн системүүд програм бүрт тусдаа санах ойн орон зай өгдөг.\n\n" +
       "Давуу тал:\n" +
-      "- Програмууд хоорондоо нөлөөлөхгүй\n" +
+      "- Хэрэв нэг програм буруу ажиллавал, бусад програмд нөлөөлөхгүй.\n" +
       "- Алдаа гарсан ч бусад програмд нөлөөлөхгүй\n" +
-      "- RAM хүрэлцэхгүй ч програм ажиллах боломжтой\n" +
-      "- Олон програм зэрэг ажиллах боломжтой",
+      "- Виртуал санах ой нь RAM + Disk (Swap) ашиглаж, RAM хомсдсон ч програм ажиллах боломжийг олгодог.\n" +
+      "- Програм бүр өөрийн санах ойтой тул систем нэгэн зэрэг олон програмыг зохион байгуулж ажиллуулж чаддаг",
     backgroundColor: "#1f2937",
     textColor: "white",
     visualHint: "img6"
@@ -111,11 +111,10 @@ export const slides = [
     subtitle: "Virtual Memory Management",
     layout: 'dual',
     content:
-      "Програмын санах ойг жижиг блок (pages) болгон хувааж, RAM дахь frames-тэй холбодог.\n\n" +
-      "Давуу тал:\n" +
-      "- RAM тасралтгүй байх шаардлагагүй\n" +
-      "- Fragmentation багасна\n" +
-      "- Том програм RAM-д багтаж ажиллах боломжтой",
+      "Paging нь програмын санах ойг жижиг, нэг хэмжээтэй блок буюу page болгон хуваадаг. Эдгээр page-уудыг RAM дахь frames буюу физик санах ойн жижиг блок-тэй холбож ажиллуулдаг. Ингэснээр програмын санах ой болон RAM хооронд тасралтгүй memory шаардлагагүй болдог.\n" +
+      "RAM тасралтгүй байх шаардлагагүй-page бүр хаана ч байж болно, contiguous memory шаардагдахгүй.\n" +
+      "Fragmentation багасна-RAM-д зай хэмнэгдэж, internal болон external fragmentation-ыг багасгана.\n" +
+      "Том програм RAM-д багтаж ажиллах боломжтой-зарим page-г disk дээр хадгалж, хэрэгтэй үед RAM-д авчирч ашиглах боломжтой.",
     backgroundColor: "#4c51bf",
     textColor: "white",
     visualHint: "img7"
@@ -131,8 +130,8 @@ export const slides = [
     tableData: {
       headers: ['Төрөл', 'Тайлбар'],
       rows: [
-        ['Virtual Address', 'Програм ашигладаг хийсвэр хаяг, RAM-ын байршлыг мэддэггүй.'],
-        ['Physical Address', 'RAM дахь жинхэнэ хаяг, зөвхөн OS болон hardware мэднэ.']
+        ['Virtual Address', 'Програм ашигладаг хийсвэр хаяг, RAM-д бодит байршлыг мэддэггүй, зөвхөн програмын логик хаяг,Виртуал хаяг нь програм бүрт тусдаа, өөрийн page table-ээр дамжиж физик хаяг руу хөрвөх боломжтой.'],
+        ['Physical Address', 'RAM дахь жинхэнэ хаяг, зөвхөн OS болон hardware мэднэ,Виртуал хаяг хөрвүүлэгдэж, физик хаяг руу орж програмын өгөгдлийг хадгална.']
       ]
     },
     backgroundColor: "#319795",
@@ -147,15 +146,10 @@ export const slides = [
     subtitle: "Виртуал хаягийг физик хаягт хөрвүүлэх",
     layout: 'dual',
     content:
-      "CPU-д байрлах тусгай hardware.\n\n" +
-      "Үүрэг:\n" +
-      "1. Virtual → Physical address хөрвүүлэх\n" +
-      "2. Page fault илрүүлэх\n" +
-      "3. Санах ойн хамгаалалт хангах\n" +
-      "4. TLB ашиглан хурдыг нэмэгдүүлэх",
+      "MMU (Memory Management Unit) нь CPU-д байрлах тусгай hardware бөгөөд виртуал хаягийг физик хаягт хөрвүүлэх, page fault илрүүлэх, санах ойн хамгаалалт хангах, мөн TLB ашиглан хөрвүүлэлтийг хурдан болгох үүрэгтэй.",
     backgroundColor: "#f6ad55",
     textColor: "#333",
-    visualHint: "img8"
+    visualHint: "img9"
   },
 
   // Slide 10: Page Table & PTE
@@ -165,15 +159,10 @@ export const slides = [
     subtitle: "Paging-д мэдээллийн бүтэц",
     layout: 'dual',
     content:
-      "Page Table нь виртуал хаягийг физик хаягт хөрвүүлэх хүснэгт юм.\n\n" +
-      "PTE-д юу хадгалагддаг:\n" +
-      "- Frame number (RAM-д хаана байгааг)\n" +
-      "- Valid / Invalid бит\n" +
-      "- Read / Write / Execute эрхүүд\n" +
-      "- Reference ба Dirty бит",
+      "Page Table нь виртуал хаягийг физик хаягт хөрвүүлэх хүснэгт бөгөөд PTE (Page Table Entry) нь frame number, valid/invalid бит, read/write/execute эрхүүд, reference болон dirty бит зэрэг page-ийн мэдээллийг хадгалдаг.\n",
     backgroundColor: "#9f7aea",
     textColor: "white",
-    visualHint: "img9"
+    visualHint: null
   },
 
   // Slide 11: Paging-г хурдлуулах техникүүд
