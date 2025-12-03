@@ -35,3 +35,126 @@ main {
   from { transform: translateX(-100%); opacity: 0; }
   to { transform: translateX(0); opacity: 1; }
 }
+
+/* 3D Flip Animation */
+@keyframes flip3d {
+  0% {
+    transform: perspective(1000px) rotateY(-180deg) scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: perspective(1000px) rotateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* 3D Zoom In */
+@keyframes zoom3d {
+  0% {
+    transform: perspective(1000px) translateZ(-500px) scale(0.3);
+    opacity: 0;
+  }
+  100% {
+    transform: perspective(1000px) translateZ(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* 3D Rotation */
+@keyframes rotate3d {
+  0% {
+    transform: perspective(1000px) rotateX(90deg) rotateY(90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: perspective(1000px) rotateX(0) rotateY(0);
+    opacity: 1;
+  }
+}
+
+/* 3D Stack Animation */
+@keyframes stack3d {
+  0% {
+    transform: perspective(1000px) translateY(100px) rotateX(45deg);
+    opacity: 0;
+  }
+  100% {
+    transform: perspective(1000px) translateY(0) rotateX(0);
+    opacity: 1;
+  }
+}
+
+/* 3D Clock Animation */
+@keyframes clock3d {
+  0% {
+    transform: perspective(1000px) rotateZ(180deg);
+    opacity: 0;
+  }
+  100% {
+    transform: perspective(1000px) rotateZ(0);
+    opacity: 1;
+  }
+}
+
+/* 3D Hybrid Animation */
+@keyframes hybrid3d {
+  0% {
+    transform: perspective(1000px) scale(0.5) rotateY(180deg);
+    opacity: 0;
+  }
+  100% {
+    transform: perspective(1000px) scale(1) rotateY(0);
+    opacity: 1;
+  }
+}
+
+/* Apply animations based on slide type */
+.slide-3d-flip {
+  animation: flip3d 1s ease-out;
+}
+
+.slide-3d-zoom {
+  animation: zoom3d 1s ease-out;
+}
+
+.slide-3d-rotate {
+  animation: rotate3d 1s ease-out;
+}
+
+.slide-3d-stack {
+  animation: stack3d 1s ease-out;
+}
+
+.slide-3d-clock {
+  animation: clock3d 1s ease-out;
+}
+
+.slide-3d-hybrid {
+  animation: hybrid3d 1s ease-out;
+}
+
+/* 3D Hover Effects */
+.slide-3d-hover:hover {
+  transform: perspective(1000px) rotateX(5deg) rotateY(5deg) translateZ(20px);
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    0 0 50px rgba(102, 126, 234, 0.3);
+  transition: all 0.3s ease;
+}
+
+/* 3D Text Shadow */
+.text-3d {
+  text-shadow: 
+    0 1px 0 #ccc,
+    0 2px 0 #c9c9c9,
+    0 3px 0 #bbb,
+    0 4px 0 #b9b9b9,
+    0 5px 0 #aaa,
+    0 6px 1px rgba(0,0,0,.1),
+    0 0 5px rgba(0,0,0,.1),
+    0 1px 3px rgba(0,0,0,.3),
+    0 3px 5px rgba(0,0,0,.2),
+    0 5px 10px rgba(0,0,0,.25),
+    0 10px 10px rgba(0,0,0,.2),
+    0 20px 20px rgba(0,0,0,.15);
+}
