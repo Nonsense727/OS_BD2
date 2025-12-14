@@ -301,238 +301,86 @@ export const slides = [
   },
   {
     id: 18,
-    title: "Page Fault нь виртуал санах ойн үндсэн бүрэлдэхүүн",
-    subtitle: "Virtual Memory Foundation",
-    content: "Page fault бол виртуал санах ойн системийн ҮНДСЭН механизм! Програм RAM-д байхгүй хуудсыг хүсэхэд CPU interrupt үүсгэж, OS хуудсыг дискээс RAM руу ачаалдаг.",
-    points: [
-      "📱 Програм → RAM дээрх хуудас хүсэх",
-      "⚠️ Хуудас RAM-д БАЙХГҮЙ → Page Fault!",
-      "🚨 CPU interrupt → OS handler дуудагдах",
-      "💾 Диск → RAM руу хуудас ачаалах",
-      "🔄 Page table шинэчлэгдэх",
-      "▶️ Програм үргэлжлүүлэх"
-    ],
-    backgroundColor: "#1a237e",
+    title: "Page Fault",
+    layout: "dual",
+    content:
+      "- Програм RAM-д байхгүй хуудсанд хандахад Page Fault үүснэ\n" +
+      "- Үйлдлийн систем тухайн хуудсыг дисктээс уншиж авчирна\n" +
+      "- Хэрвээ RAM дүүрсэн бол нэг хуудсыг гаргаж байж шинээр оруулна\n" +
+      "- Page Fault нь виртуал санах ойн хэвийн ажиллагаа",
+    subtitle: "Page Fault ойлголт",
+    backgroundColor: "#3182ce",
     textColor: "white",
-    animation: "3d-flip",
-    icon: "⚡",
-    // ADD THESE NEW FIELDS:
-    code: `// PAGE FAULT HANDLER - 3D VISUALIZATION
-void handle_page_fault_3d() {
-    // 1️⃣ CPU INTERRUPT (3D ANIMATION)
-    trigger_interrupt_3d();
-    
-    // 2️⃣ OS HANDLER ACTIVATION
-    os_page_fault_handler();
-    
-    // 3️⃣ DISK → RAM TRANSFER (VISUAL LOADING)
-    load_from_disk_with_progress();
-    
-    // 4️⃣ PAGE TABLE UPDATE (3D ROTATION)
-    update_page_table_3d();
-}`,
-    media: {
-      type: "image", // or "video", "gif"
-      url: "https://media.geeksforgeeks.org/wp-content/uploads/121-1.png", // ADD YOUR IMAGE URL
-      alt: "Page Fault 3D Animation"
-    },
-    diagram: "3d-flow",
-    stats: "90%+ of virtual memory accesses cause page faults"
+    visualHint: "img21"
   },
   {
     id: 19,
-    title: "Demand Paging нь RAM-ийг оновчтой ашигладаг",
-    subtitle: "RAM Optimization Strategy",
-    content: "Demand Paging нь програм эхлэх үед бүх хуудсыг RAM-д ачаалахгүй, зөвхөн ХЭРЭГТЭЙ ҮЕД л ачаалдаг гайхалтай оновчтой стратеги!",
-    points: [
-      "🚀 Програм эхлэх → ЗӨВХӨН заавал шаардлагатай хуудсууд",
-      "🎯 Page fault үүсэх → Шаардлагатай хуудсууд ачаалдаг",
-      "💎 RAM хэрэглээ 60-80% БАГАСДАГ",
-      "🔄 Олон програм ЗЭРЭГ ажиллах",
-      "⚡ Системийн гүйцэтгэл ИЛҮҮ ХУРДАН"
-    ],
-    backgroundColor: "#004d40",
+    title: "Demand Paging",
+    layout: "dual",
+    content:
+      "- Програм эхлэхэд бүх хуудсыг RAM-д ачаалдаггүй\n" +
+      "- Зөвхөн хэрэг болсон хуудсыг л RAM-д татаж оруулна\n" +
+      "- RAM-ийг илүү хэмнэлттэй ашиглах боломж олгодог\n" +
+      "- Page Fault ихдвэл систем удааширч болно",
+    subtitle: "Виртуал санах ойн үндэс",
+    backgroundColor: "#38a169",
     textColor: "white",
-    animation: "3d-zoom",
-    icon: "📊",
-    // ADD 3D VISUALIZATION CODE:
-    code: `// DEMAND PAGING 3D VISUALIZATION
-void demand_paging_3d_visual() {
-    // 🎨 3D MEMORY VISUALIZATION
-    visualize_memory_3d();
-    
-    // 📈 REAL-TIME RAM USAGE GRAPH
-    show_ram_usage_graph();
-    
-    // 🔄 LAZY LOADING ANIMATION
-    animate_lazy_loading();
-    
-    // 💾 DISK ACCESS VISUALIZATION
-    show_disk_access_pattern();
-}`,
-    media: {
-      type: "video", // ADD YOUR VIDEO LINK
-      url: "https://example.com/demand-paging-3d.mp4",
-      alt: "Demand Paging 3D Visualization"
-    },
-    diagram: "3d-comparison",
-    stats: "Demand Paging saves 40-60% RAM usage"
+    visualHint: "img22"
   },
   {
     id: 20,
-    title: "FIFO энгийн боловч Belady's anomaly гаргадаг",
-    subtitle: "First-In-First-Out Algorithm",
-    content: "FIFO нь хамгийн ЭНГИЙН алгоритм боловч Belady's anomaly гэдэг асуудалтай! Илүү их RAM-тай ч ИЛҮҮ ОЛОН page fault гардаг гайхалтай феномен!",
-    points: [
-      "🧮 Queue бүтэц → ЭНГИЙН хэрэгжилт",
-      "🔢 Орох дарааллаар гарах",
-      "⚠️ Belady's anomaly → Илүү RAM = Илүү олон fault!",
-      "📉 Гүйцэтгэл МУУ (20-30% буруу сонголт)",
-      "⏱️ Зөвхөн ЯАРАЛТАЙ тохиолдолд ашиглах"
-    ],
-    backgroundColor: "#bf360c",
+    title: "FIFO Page Replacement",
+    layout: "dual",
+    content:
+      "- RAM-д хамгийн түрүүнд орсон хуудсыг хамгийн түрүүнд гаргана\n" +
+      "- Энгийн дараалал (queue) ашигладаг\n" +
+      "- Хэрэгжүүлэхэд маш хялбар\n" +
+      "- Чухал хуудсыг ч санамсаргүй устгах сул талтай",
+    subtitle: "First In, First Out",
+    backgroundColor: "#dd6b20",
     textColor: "white",
-    animation: "3d-rotate",
-    icon: "🔄",
-    // ADD BELADY'S ANOMALY EXAMPLE:
-    code: `// BELADY'S ANOMALY - 3D DEMONSTRATION
-void belady_anomaly_3d() {
-    // 🎯 3 REFERENCE STRING: 1,2,3,4,1,2,5,1,2,3,4,5
-    
-    // 📦 3 FRAMES (9 page faults)
-    visualize_fifo_3d(3, 9);
-    
-    // 🎯 SAME STRING WITH 4 FRAMES
-    // 📦 4 FRAMES (10 page faults - MORE!)
-    visualize_fifo_3d(4, 10); // ANOMALY! ⚠️
-    
-    // 🎨 3D ANIMATION SHOWING THE PROBLEM
-    animate_belady_anomaly();
-}`,
-    media: {
-      type: "gif", // ADD ANIMATED GIF
-      url: "https://example.com/belady-anomaly.gif",
-      alt: "Belady's Anomaly 3D Animation"
-    },
-    diagram: "3d-anomaly",
-    stats: "Belady's anomaly occurs in 15% of cases"
+    visualHint: "img23"
   },
   {
     id: 21,
-    title: "LRU хамгийн сайн практик алгоритм",
-    subtitle: "Least Recently Used Algorithm",
-    content: "LRU нь ХАМГИЙН САЙН практик алгоритм! Хамгийн УДААН ашиглагдаагүй хуудсыг солих зарчимд үндэслэдэг бөгөөд 90% тохиолдолд ОНОВЧТОЙ шийдэл гаргадаг!",
-    points: [
-      "🏆 90% тохиолдолд ОНОВЧТОЙ",
-      "📊 Counter эсвэл stack ашигладаг",
-      "🔄 Хандалт бүрт хуудасны байрлал ШИНЭЧЛЭГДДЭГ",
-      "✅ Belady's anomaly БАЙХГҮЙ",
-      "🚀 Орчин үеийн системд ӨРГӨН хэрэглэгддэг"
-    ],
-    backgroundColor: "#1b5e20",
+    title: "LRU Page Replacement",
+    layout: "dual",
+    content:
+      "- Сүүлд хамгийн удаан ашиглагдаагүй хуудсыг устгана\n" +
+      "- Хэрэглэгчийн бодит хэрэглээнд сайн тохирдог\n" +
+      "- Page Fault харьцангуй бага гаргадаг\n" +
+      "- Олон үйлдлийн систем энэ зарчимд суурилдаг",
+    subtitle: "Least Recently Used",
+    backgroundColor: "#2b6cb0",
     textColor: "white",
-    animation: "3d-stack",
-    icon: "🥇",
-    // ADD 3D STACK VISUALIZATION:
-    code: `// LRU STACK - 3D VISUALIZATION
-void lru_3d_visualization() {
-    // 🎨 3D STACK CREATION
-    create_3d_stack();
-    
-    // 🔄 ACCESS ANIMATION
-    animate_page_access();
-    
-    // 📊 PERFORMANCE METRICS
-    show_performance_metrics();
-    
-    // 🎯 OPTIMALITY DEMONSTRATION
-    demonstrate_optimality();
-}`,
-    media: {
-      type: "interactive", // ADD INTERACTIVE 3D
-      url: "https://example.com/lru-3d-demo",
-      alt: "LRU 3D Interactive Demo"
-    },
-    diagram: "3d-lru-stack",
-    stats: "LRU achieves 85-95% hit rate"
+    visualHint: "img24"
   },
   {
     id: 22,
-    title: "Working Set ба WSClock нь thrashing-аас хамгаалдаг",
-    subtitle: "Thrashing Prevention System",
-    content: "Working Set бол програмын 'ИДЭВХТЭЙ' хуудсуудын олонлог! Thrashing (хэт олон page fault) үед системийн гүйцэтгэлийг ХАМГААЛДАГ гайхалтай механизм!",
-    points: [
-      "🛡️ Working Set = сүүлийн Δ хугацаанд хандагдсан хуудсууд",
-      "⚠️ Thrashing: RAM дутуу → олон page fault → систем УДААН",
-      "⏰ WSClock: Working Set + Clock алгоритмын ХОЛИМОГ",
-      "🎯 Local replacement стратеги",
-      "📈 Програм бүрийн RAM хэрэгцээг ТОГТООХ"
-    ],
-    backgroundColor: "#4a148c",
+    title: "Clock Algorithm",
+    layout: "dual",
+    content:
+      "- Second Chance алгоритмын дугуй хэлбэртэй хувилбар\n" +
+      "- Хуудсууд цагийн зүү шиг дарааллаар шалгагдана\n" +
+      "- R бит = 1 бол дахин боломж олгож алгасна\n" +
+      "- R бит = 0 бол хуудсыг устгана",
+    subtitle: "Clock Page Replacement",
+    backgroundColor: "#4a5568",
     textColor: "white",
-    animation: "3d-clock",
-    icon: "🛡️",
-    // ADD 3D CLOCK VISUALIZATION:
-    code: `// WSClock 3D SIMULATION
-void wsclock_3d_simulation() {
-    // 🎨 3D CLOCK CREATION
-    create_3d_clock();
-    
-    // 🔄 HAND ROTATION ANIMATION
-    animate_clock_hand();
-    
-    // 📊 WORKING SET VISUALIZATION
-    visualize_working_set();
-    
-    // 🛡️ THRASHING PREVENTION DEMO
-    demonstrate_thrashing_prevention();
-}`,
-    media: {
-      type: "embed", // EMBED 3D MODEL
-      url: "https://example.com/wsclock-3d-model",
-      alt: "WSClock 3D Model"
-    },
-    diagram: "3d-clock-model",
-    stats: "Prevents thrashing in 95% of cases"
+    visualHint: "img25"
   },
   {
     id: 23,
-    title: "Орчин үеийн Linux kernel нь 'Clock + LRU + Working Set' холимог арга ашигладаг",
-    subtitle: "Modern Linux Kernel Strategy",
-    content: "Linux kernel нь олон алгоритмын ДАВУУ ТАЛУУДЫГ НЭГТГЭСНЭ! Clock-ын хурд, LRU-ын оновчтой байдал, Working Set-ийн хамгаалалтыг НЭГДГЭЭН гайхалтай стратеги!",
-    points: [
-      "⚡ Clock алгоритм: ХУРДАН, энгийн",
-      "📊 LRU мэдээлэл: Хуудасны түүх",
-      "🛡️ Working Set: Идэвхтэй хуудсуудыг хамгаалах",
-      "🎚️ Swappiness параметр: Swap хэрэглээг тохируулах",
-      "🎨 Active/Inactive хуудсыг ЯЛГАХ"
-    ],
-    backgroundColor: "#263238",
+    title: "Working Set & Thrashing",
+    layout: "dual",
+    content:
+      "- Working Set нь тухайн үед програмд хэрэгтэй хуудсуудын багц\n" +
+      "- Page Fault хэт их гарвал thrashing үүснэ\n" +
+      "- Thrashing үед систем маш их удааширна\n" +
+      "- Working Set нь thrashing-ээс сэргийлэхэд тусалдаг",
+    subtitle: "Memory Management Issues",
+    backgroundColor: "#c53030",
     textColor: "white",
-    animation: "3d-hybrid",
-    icon: "🐧",
-    // ADD LINUX 3D VISUALIZATION:
-    code: `// LINUX KERNEL 3D VISUALIZATION
-void linux_kernel_3d() {
-    // 🎨 HYBRID ALGORITHM VISUALIZATION
-    visualize_hybrid_algorithm();
-    
-    // 🔄 REAL-TIME DECISION MAKING
-    show_decision_process();
-    
-    // 📊 PERFORMANCE COMPARISON
-    compare_performance();
-    
-    // 🚀 FUTURE OPTIMIZATIONS
-    show_future_optimizations();
-}`,
-    media: {
-      type: "video",
-      url: "https://example.com/linux-memory-3d.mp4", // ADD LINUX VIDEO
-      alt: "Linux Memory Management 3D"
-    },
-    diagram: "3d-linux-hybrid",
-    stats: "Linux achieves 99%+ memory efficiency"
+    visualHint: "img26"
   }
-
-];
+]

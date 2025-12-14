@@ -41,6 +41,12 @@ const imageMap = {
   'img18': img18,
   'img19': img19,
   'img20': img20,
+  'img21': img21,
+  'img22': img22,
+  'img23': img23,
+  'img24': img24,
+  'img25': img25,
+  'img26': img26,
 };
 
 const slidesWithImages = slides.map(slide => {
