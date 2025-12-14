@@ -53,7 +53,7 @@ export const slides = [
         description: "Олон жижиг тасархай сул зайнууд (External Fragmentation) үүсч байна.",
       }
     },
-    backgroundColor: "#319795", 
+    backgroundColor: "#319795",
     textColor: "white",
     visualHint: null
   },
@@ -64,7 +64,7 @@ export const slides = [
     title: "Swapping: Зөөх & Нягтруулах",
     subtitle: "RAM-ийн Хязгаарлалтыг Давах Техник",
     layout: 'dual',
-    content: 
+    content:
       "Swapping: RAM-д зай хүрэхгүй үед идэвхгүй процессыг бүхлээр нь Диск (Backing Store) руу хуулах.\n" +
       "Ялгаа: Swapping нь бүхэл процессыг зөөдөг. Virtual Memory (Paging) нь зөвхөн хэсгийг зөөдөг.\n" +
       "Memory Compaction: Гадаад хуваагдлыг арилгахын тулд бүх процессыг шахаж, сул зайг нэгтгэх. CPU-д их ачаалал өгдөг.",
@@ -77,7 +77,7 @@ export const slides = [
     title: "Хуваарилалтын Алгоритмууд",
     subtitle: "Сул Зай Сонгох Стратегиуд",
     layout: 'dual',
-    content: 
+    content:
       "First Fit: Жагсаалтын эхнээс таарсан хамгийн эхний зайг сонгоно. (Хамгийн хурдан, үр ашигтай).\n" +
       "Best Fit: Хамгийн бага илүүдэл үлдээх зайг сонгоно. (Жижиг цоорхой үүсэх эрсдэлтэй).\n" +
       "Worst Fit: Хамгийн том сул зайг сонгоно. (Үлдсэн зай нь ашиглагдах боломжтой).\n" +
@@ -261,6 +261,7 @@ export const slides = [
   {
     id: 15,
     title: "Segmentation with Paging",
+    layout: 'dual',
     content:
       "- Logical address → Segment selector → Page table → Frame\n" +
       "- MULTICS, Intel x86 архитектурт хэрэглэгддэг\n" +
@@ -273,6 +274,7 @@ export const slides = [
   {
     id: 16,
     title: "Thrashing & Page Size",
+    layout: 'dual',
     content:
       "- Thrashing → байнгын page fault → CPU удаашрал\n" +
       "- Жижиг page → бага internal fragmentation\n" +
@@ -286,6 +288,7 @@ export const slides = [
   {
     id: 17,
     title: "Locking Pages & Backing Store",
+    layout: 'dual',
     content:
       "- I/O үед page-г RAM-д түгжих (Pinned pages)\n" +
       "- Swap space / Backing store → RAM хүрэлцээг нэмэгдүүлэх\n" +

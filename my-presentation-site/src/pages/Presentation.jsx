@@ -16,7 +16,11 @@ import img10 from '../images/img10.png';
 import img11 from '../images/img11.png';
 import img11_1 from '../images/img11_1.png';
 import img11_2 from '../images/img11_2.png';
-
+import img16_1 from '../images/img16_1.png';
+import img16_2 from '../images/img16_2.png';
+import img18 from '../images/img18.png';
+import img19 from '../images/img19.png';
+import img20 from '../images/img20.png';
 
 
 const imageMap = {
@@ -32,6 +36,11 @@ const imageMap = {
   'img11': img11,
   'img11_1': img11_1,
   'img11_2': img11_2,
+  'img16_1': img16_1,
+  'img16_2': img16_2,
+  'img18': img18,
+  'img19': img19,
+  'img20': img20,
 };
 
 const slidesWithImages = slides.map(slide => {
