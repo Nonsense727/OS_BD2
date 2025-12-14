@@ -384,3 +384,4 @@ export const slides = [
     visualHint: "img26"
   }
 ]
+export default slides;

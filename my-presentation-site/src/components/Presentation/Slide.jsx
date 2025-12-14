@@ -303,7 +303,8 @@ const Slide = ({ slide, isActive, direction }) => {
           transition={{ delay: 1.0, type: "spring" }}
           style={styles.slideNumber}
         >
-          {slide.id} / 5
+          {slide.id} / 23
+          
         </motion.div>
       </div>
     </motion.div>
