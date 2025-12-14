@@ -21,7 +21,12 @@ import img16_2 from '../images/img16_2.png';
 import img18 from '../images/img18.png';
 import img19 from '../images/img19.png';
 import img20 from '../images/img20.png';
-
+import img21 from '../images/img21.png';
+import img22 from '../images/img22.png';
+import img23 from '../images/img23.png';
+import img24 from '../images/img24.png';
+import img25 from '../images/img25.png';
+import img26 from '../images/img26.png';
 
 const imageMap = {
   'img1': img1,
