@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Slide from '../components/Presentation/Slide'
 import Controls from '../components/Presentation/Controls'
-import { slides } from '../Data/slides'
+import slides from '../data/slidesData'
 
 import img1 from '../images/img1.jpg';
 import img2 from '../images/img2.png';
