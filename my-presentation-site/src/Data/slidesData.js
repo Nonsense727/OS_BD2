@@ -162,7 +162,7 @@ export const slides = [
       "Page Table нь виртуал хаягийг физик хаягт хөрвүүлэх хүснэгт бөгөөд PTE (Page Table Entry) нь frame number, valid/invalid бит, read/write/execute эрхүүд, reference болон dirty бит зэрэг page-ийн мэдээллийг хадгалдаг.\n",
     backgroundColor: "#9f7aea",
     textColor: "white",
-    visualHint: null
+    visualHint: "img7"
   },
 
   // Slide 11: Paging-г хурдлуулах техникүүд
